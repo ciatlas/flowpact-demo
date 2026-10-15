@@ -1,0 +1,22 @@
+name: Tests
+on:
+  workflow_call:
+    inputs:
+      suite:
+        type: string
+        required: true
+
+jobs:
+  run:
+    strategy:
+      matrix:
+        include:
+          - name: linux
+            config: ci-linux.json
+          - name: macos
+            config: ci-macos.json
+    uses: ./.github/workflows/run-suite.yml
+    with:
+      config: ${{ matrix.config }}
+      suite: ${{ inputs.suite }}
+      variant: ${{ matrix.name }}

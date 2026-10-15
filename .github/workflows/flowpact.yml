@@ -1,0 +1,14 @@
+name: flowpact
+on: pull_request
+
+permissions:
+  contents: read
+
+jobs:
+  flowpact:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ciatlas/flowpact@c0ebd0ca8f0ae1d42aab5f4d5a64da2fd793f78d # v0.21.0
