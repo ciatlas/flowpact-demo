@@ -15,6 +15,7 @@ jobs:
             config: ci-linux.json
           - name: macos
             config: ci-macos.json
+          - name: windows
     uses: ./.github/workflows/run-suite.yml
     with:
       config: ${{ matrix.config }}
